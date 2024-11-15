@@ -1,6 +1,30 @@
 .vsconfig
-Library/
-Logs/
-Planet.sln
-Temp/
 UserSettings/
+# Ignore Unity auto-generated files
+*.csproj
+*.sln
+*.user
+*.pidb
+*.suo
+*.booproj
+*.tmproj
+
+# Ignore Library, Temp, and other Unity-specific folders
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Ll]ogs/
+[Mm]emoryCaptures/
+
+# Ignore other Unity-related files
+*.unityproj
+*.dll
+*.exe
+*.apk
+*.app
+*.symbols.zip
+*.aar
+
+# Ignore crash reports, etc.
+sysinfo.txt
