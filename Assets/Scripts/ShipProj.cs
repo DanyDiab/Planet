@@ -16,7 +16,7 @@ public class ShipProj : Proj
     // Update is called once per frame
     void Update()
     {
-        base.move();
-        base.destroyPassedRange();
+        move();
+        destroyPassedRange();
     }
 }

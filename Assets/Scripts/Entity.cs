@@ -1,40 +1,37 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public abstract class Entity : MonoBehaviour
 {
-    int speed;
-    float rotationSpeed;
-    float fireRate;
-    float range;
+    protected float speed;
+    protected int HP;
+    protected float range;
+
     // Start is called before the first frame update
     public virtual void Start()
-    {
-        speed = 3;
-        rotationSpeed = 100f;
-        fireRate = .5f;
-        range = 100f;
-    }
-
-    // Update is called once per frame
-    void Update()
     {
         
     }
 
-    public int getSpeed(){
+    public float getSpeed(){
         return speed;
     }
-
-    public float getRotationSpeed(){
-        return rotationSpeed;
-    }
-    public float getFireRate(){
-        return fireRate;
+    public void setSpeed(float speed){
+        this.speed = speed;
     }
     
     public float getRange(){
         return range;
     }
+    public void takeDamage(){
+        HP--;
+    }
+    public int getHP(){
+        return HP;
+    }
+
+
 }

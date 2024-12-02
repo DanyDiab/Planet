@@ -22,7 +22,6 @@ public class Proj : MonoBehaviour
         transform.Translate(ammtToTranslate);
         distanceTraveled += ammtToTranslate.magnitude;
         // destory proj after it has passed its range
-        destroyPassedRange();
     }
 
     protected void destroyPassedRange(){
@@ -40,6 +39,22 @@ public class Proj : MonoBehaviour
         transform.rotation = Quaternion.LookRotation(Vector3.forward, dir);
     }
 
+
+
+    void OnTriggerEnter2D(Collider2D other){
+        Destroy(gameObject);
+        if(other.tag == "Asteroid"){
+            Debug.Log("added asteroid");
+            PointManager.addAsteroid();
+        }
+        if(tag == "Asteroid" && other.tag == "Planet"){
+            Planet planet = other.GetComponent<Planet>();
+            planet.takeDamage();
+            
+            planet.isGameOver();
+        }
+    }
+
     public void setShooter(Entity entity){
         shooter = entity;
 
@@ -54,7 +69,5 @@ public class Proj : MonoBehaviour
         this.speed = speed;
     }
 
-    void OnTriggerEnter2D(Collider2D other){
-        Destroy(gameObject);
-    }
+
 }

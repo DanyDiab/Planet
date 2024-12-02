@@ -10,15 +10,13 @@ public class AsteroidSpawner : Proj
     void Start(){
         StartCoroutine(Spawn());
     }
-
-
-
+    
     IEnumerator Spawn(){
         int randX = Random.Range(-50, 50);
         int randY = Random.Range(-50, 50);
         Vector3 randPos = new Vector3(randX, randY, 1);
         Instantiate(asteroid, randPos, transform.rotation);
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2f);
         StartCoroutine(Spawn());
     }
 }
